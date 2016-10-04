@@ -1,0 +1,47 @@
+.all-keys {
+  display: flex;
+  max-width: 950px;
+  min-width: 950px;
+  max-height: 236px;
+  max-height: 236px;
+}
+.white-keys {
+  display: inline-block;
+  height: 300px;
+  width: 800px;
+  margin-bottom: -300px;
+  position: relative;
+}
+.w-key {
+  color: white;
+  border: 1px solid black;
+  height: 230px;
+  width: 50px;
+  display: inline-block;
+  position: relative;
+  margin: -1px;
+}
+.b-key {
+  background-color: black;
+  height: 144px;
+  width: 30px;
+  display: inline-block;
+  position: relative;
+  margin-top: -1px;
+}
+.black {
+  position: absolute;
+  max-width: 950px;
+  min-width: 950px;
+}
+.start {
+  margin-left: 38.2px;
+}
+.adjacent {
+  margin-left: 20.2px;
+}
+.skip {
+  margin-left: 73.2px;
+}
+
+
