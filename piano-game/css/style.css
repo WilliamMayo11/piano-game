@@ -1,3 +1,16 @@
+header {
+  background-color: black;
+  color: white;
+  margin-top: -40px;
+  margin-left: -8px;
+  margin-right: -10px;
+}
+h1 {
+  padding: 20px;
+}
+h2 {
+  padding: 10px;
+}
 .all-keys {
   display: flex;
   max-width: 950px;
@@ -20,6 +33,7 @@
   display: inline-block;
   position: relative;
   margin: -1px;
+  background-color: white;
 }
 .b-key {
   background-color: black;
@@ -28,6 +42,8 @@
   display: inline-block;
   position: relative;
   margin-top: -1px;
+  border: 1px solid black;
+  box-sizing: border-box;
 }
 .black {
   position: absolute;
@@ -43,5 +59,7 @@
 .skip {
   margin-left: 73.2px;
 }
-
-
+.key:hover {
+  background-color: #C4C4C4;
+  transition: .4s all;
+}

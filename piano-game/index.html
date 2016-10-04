@@ -4,46 +4,51 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
+  <script src="scripts/app.js" charset="utf-8"></script>
   <title>Piano</title>
 </head>
 <body>
-<header>Welcome</header>
-
+<header>
+  <h1>Piano Game</h1>
+  <h2>Learn basic scales with this interactive keyboard</h2>
+</header>
+<nav>
+  <ul>
+    <li>Home</li>
+    <li>Game Page</li>
+  </ul>
+</nav>
 
 
 <div class="all-keys">
   <div class="white_keys">
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
-    <div class="w-key"></div>
+    <div class="w-key" id="c1"></div>
+    <div class="w-key" id="d1"></div>
+    <div class="w-key" id="e1"></div>
+    <div class="w-key" id="f1"></div>
+    <div class="w-key" id="g1"></div>
+    <div class="w-key" id="a1"></div>
+    <div class="w-key" id="b1"></div>
+    <div class="w-key" id="c2"></div>
+    <div class="w-key" id="d2"></div>
+    <div class="w-key" id="e2"></div>
+    <div class="w-key" id="f2"></div>
+    <div class="w-key" id="g2"></div>
+    <div class="w-key" id="a2"></div>
+    <div class="w-key" id="b2"></div>
   </div>
   <div class="black">
-    <div class="b-key start"></div>
-    <div class="b-key adjacent"></div>
-    <div class="b-key skip"></div>
-    <div class="b-key adjacent"></div>
-    <div class="b-key adjacent"></div>
-    <div class="b-key skip"></div>
-    <div class="b-key adjacent"></div>
-    <div class="b-key skip"></div>
-    <div class="b-key adjacent"></div>
-    <div class="b-key adjacent"></div>
-    <div class="b-key skip"></div>
-    <div class="b-key adjacent"></div>
+    <div class="b-key start" id="c-sharp1"></div>
+    <div class="b-key adjacent" id="d-sharp1"></div>
+    <div class="b-key skip" id="f-sharp1"></div>
+    <div class="b-key adjacent" id="g-sharp1"></div>
+    <div class="b-key adjacent" id="a-sharp1"></div>
+    <div class="b-key skip" id="c-sharp2"></div>
+    <div class="b-key adjacent" id="d-sharp2"></div>
+    <div class="b-key skip" id="f-sharp2"></div>
+    <div class="b-key adjacent" id="g-sharp2"></div>
+    <div class="b-key adjacent" id="a-sharp2"></div>
 
   </div>
 </div>
