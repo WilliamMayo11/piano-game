@@ -13,60 +13,122 @@ h2 {
 }
 .all-keys {
   display: flex;
-  max-width: 950px;
-  min-width: 950px;
-  max-height: 236px;
-  max-height: 236px;
-}
-.white-keys {
-  display: inline-block;
-  height: 300px;
-  width: 800px;
-  margin-bottom: -300px;
-  position: relative;
+  max-width: 930px;
+  min-width: 930px;
+  max-height: 252px;
+  max-height: 252px;
 }
 .w-key {
-  color: white;
-  border: 1px solid black;
-  height: 230px;
-  width: 50px;
+  border: 2px solid black;
+  border-radius: 4px;
+  height: 250px;
+  width: 60px;
   display: inline-block;
   position: relative;
-  margin: -1px;
   background-color: white;
 }
 .b-key {
   background-color: black;
-  height: 144px;
-  width: 30px;
+  height: 154px;
+  width: 35px;
   display: inline-block;
-  position: relative;
-  margin-top: -1px;
-  border: 1px solid black;
-  box-sizing: border-box;
-}
-.black {
   position: absolute;
-  max-width: 950px;
-  min-width: 950px;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  z-index: 1;
 }
-/*.start {
-  left: 38.2px;
+#c-sharp1 {
+  left: -13px;
+  position: relative;
 }
-.adjacent {
-  left: 20.2px;
+#d1 {
+  left: -27.2px;
+  position: relative;
 }
-.skip {
-  left: 73.2px;
-}*/
-.start {
-  margin-left: 38.2px;
+#d-sharp1 {
+  left: -40.2px;
+  position: relative;
 }
-.adjacent {
-  margin-left: 20.2px;
+#e1 {
+  left: -54.4px;
+  position: relative;
 }
-.skip {
-  margin-left: 73.2px;
+#f1 {
+  left: -55.5px;
+  position: relative;
+}
+#f-sharp1 {
+  left: -69.5px;
+  position: relative;
+}
+#g1 {
+  left: -82.5px;
+  position: relative;
+}
+#g-sharp1 {
+  left: -96px;
+  position: relative;
+}
+#a1 {
+  left: -109.5px;
+  position: relative;
+}
+#a-sharp1 {
+  left: -122.5px;
+  position: relative;
+}
+#b1 {
+  left: -136.5px;
+  position: relative;
+}
+#c2 {
+    left: -137.5px;
+  position: relative;
+}
+#c-sharp2 {
+  left: -151px;
+  position: relative;
+}
+#d2 {
+  left: -164.5px;
+  position: relative;
+}
+#d-sharp2 {
+  left: -178px;
+  position: relative;
+}
+#e2 {
+  left: -191.5px;
+  position: relative;
+}
+#f2 {
+  left: -192.2px;
+  position: relative;
+}
+#f-sharp2 {
+  left: -205px;
+  position: relative;
+}
+#g2 {
+  left: -219px;
+  position: relative;
+}
+#g-sharp2 {
+  left: -232px;
+  position: relative;
+}
+#a2 {
+  left: -246px;
+  position: relative;
+}
+#a-sharp2 {
+  left: -260px;
+  position: relative;
+}
+#b2 {
+  left: -273px;
+  position: relative;
 }
 .key:hover {
   background-color: #C4C4C4;
@@ -78,4 +140,7 @@ h2 {
   display: flex;
   align-items: flex-start;
   justify-content: space-around;
+}
+.reset {
+  margin-top: 15px;
 }
