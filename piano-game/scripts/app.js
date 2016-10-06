@@ -39,23 +39,26 @@ const currentScale = [cMajor, gMajor, dMajor, aMajor,
 $('.key').click(markCorrect);
 $('button').click(reset);
 $('#c1').click(playCNote);
+$('.play').click(currentChallenge);
 
 function playCNote() {
   var cNote = $('#ac1').get(0);
   cNote.play();
 }
 
+// VARIABLES
+const scaleNames = ['C Major', 'G Major', 'D Major', 'A Major',
+                    'E Major', 'B Major', 'F# Major', 'C# Major',
+                     'Ab Major', 'Eb Major', 'Bb Major', 'F Major'];
+
 // FUNCTIONS
 
 // generate new challenge
-// function currentChallenge() {
-  // let challenge = $('.challenge');
-  const scaleNames = ['C Major', 'G Major', 'D Major', 'A Major',
-                      'E Major', 'B Major', 'F# Major', 'C# Major',
-                      'Ab Major', 'Eb Major', 'Bb Major', 'F Major'];
-  // challenge.html("C Major Scale");
-// }
-// currentChallenge();
+  function currentChallenge() {
+  let challenge = $('.challenge');
+  challenge.html(scaleNames[0]);
+ }
+ // currentChallenge();
 
 // const ball = $('.ball');
 // var currentMargin = parseInt(ball.css('marginTop'));
