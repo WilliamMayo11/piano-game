@@ -10,8 +10,6 @@ $(document).ready(function(){
  const bKeys = $('.b-key');
  bKeys.addClass('key');
 
-
-
 const backgroundTest = $('body');
 backgroundTest.css('backgroundColor', 'green');
 
@@ -44,10 +42,8 @@ $('#c1').click(playCNote);
 
 function playCNote() {
   var cNote = $('#ac1').get(0);
-  console.log(cNote);
   cNote.play();
 }
-
 
 // FUNCTIONS
 
@@ -61,10 +57,13 @@ function playCNote() {
 // }
 // currentChallenge();
 
-const ball = $('.ball');
+// const ball = $('.ball');
+// var currentMargin = parseInt(ball.css('marginTop'));
+// if (currentMargin > 200) {
+//   alert('you suck');
+// }
 let count = 0;
 function markCorrect() {
-  // console.log ($(this).attr('id'));
   if ($(this).attr('id') === currentScale[count2][count]) {
     playedScale.push($(this).attr('id'));
     $(this).css('backgroundColor', 'blue');
@@ -73,15 +72,14 @@ function markCorrect() {
     ball.stop();
     ball.animate({marginTop: '10px'});
     ball.animate({marginTop: '+=240px'}, 1500);
-    //console.log(ball.css('marginTop'));
-  }
-  console.log(ball.position().top);
-  if (ball.position() < 300) {
-    alert('dropped the ball');
+
+    var currentMargin = parseInt(ball.css('marginTop'));
+    console.log(currentMargin);
   }
   checkScale();
-  console.log(playedScale);
 }
+
+
 
 function reset() {
   playedScale = [];
@@ -93,6 +91,7 @@ let count2 = 0;
 function checkScale() {
     if (count === 8) {
     //alert('scale played correctly')
+    // setInterval(reset);
     reset();
     count2++;
     currentScale = currentScale[count2];
@@ -104,7 +103,15 @@ function checkScale() {
   }
 }
 
+setInterval(youLose, 10);
 
+function youLose() {
+  const ball = $('.ball');
+  var currentMargin = parseInt(ball.css('marginTop'));
+  if (currentMargin > 200) {
+    alert('you really suck');
+  }
+}
 
 
 
