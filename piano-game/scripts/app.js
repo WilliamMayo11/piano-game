@@ -39,7 +39,7 @@ const currentScale = [cMajor, gMajor, dMajor, aMajor,
 $('.key').click(markCorrect);
 $('button').click(reset);
 $('#c1').click(playCNote);
-$('.play').click(currentChallenge);
+//$('.play').click(currentChallenge);
 
 function playCNote() {
   var cNote = $('#ac1').get(0);
@@ -56,7 +56,7 @@ const scaleNames = ['C Major', 'G Major', 'D Major', 'A Major',
 // generate new challenge
   function currentChallenge() {
   let challenge = $('.challenge');
-  challenge.html(scaleNames[0]);
+  challenge.text(scaleNames[count2]);
  }
  // currentChallenge();
 
@@ -73,8 +73,8 @@ function markCorrect() {
     count++;
     const ball = $('.ball');
     ball.stop();
-    ball.animate({marginLeft: '500px'});
-    ball.animate({marginLeft: '-=560px'}, 3000);
+    ball.animate({marginLeft: '500px'}, 'fast');
+    ball.animate({marginLeft: '-=560px'}, 1500);
 
     var currentMargin = parseInt(ball.css('marginTop'));
     console.log(currentMargin);
@@ -93,15 +93,13 @@ function reset() {
 let count2 = 0;
 function checkScale() {
     if (count === 8) {
-    //alert('scale played correctly')
-    // setInterval(reset);
     reset();
+        const ball = $('.ball');
     count2++;
-    currentScale = currentScale[count2];
-    let challenge = $('.challenge');
-    challenge.html(scaleNames[count2 + 1]);
-      if (count2 = 12) {
-      alert('You played them all!');
+    currentChallenge();
+      if (count2 === 12) {
+        // const ball = $('.ball');
+        // ball.stop();
     }
   }
 }
@@ -112,12 +110,10 @@ function youLose() {
   const ball = $('.ball');
   var currentMargin = parseInt(ball.css('marginLeft'));
   if (currentMargin < -40) {
-    alert('you really suck');
+    var ow = $('#ow').get(0);
+    ow.play();
   }
 }
-
-
-
 
 
 
