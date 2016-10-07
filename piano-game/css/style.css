@@ -19,18 +19,6 @@ h2 {
   max-height: 252px;
   margin-left: 20px;
 }
-.game-board {
-  display: flex;
-}
-@media (min-width: 780px) {
-  .game-board {
-    flex-direction: row;
-    justify-content: center;
-  }
-  .level {
-    margin: 0 auto;
-  }
-}
 .w-key {
   border: 2px solid black;
   border-radius: 4px;
@@ -72,19 +60,34 @@ h2 {
   min-width: 130px;
 }
 .ball-screen {
-  height: 252px;
-  width: 52px;
-  background-color: gray;
+  height: 250px;
+  width: 700px;
   border: 1px solid black;
-  margin-left: -260px;
+  margin-left: 1px;
+  position: absolute;
+  display: inline-block;
+  background-image: url('file:/Users/williammayo/w3_project/piano-game/images/stage.jpg');
 }
 .ball {
-  background-color: red;
-  border: 1px solid black;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  margin-top: 200px;
+  position: absolute;
+  display: inline-block;
+  margin-top: 70px;
+}
+.fire {
+  position: absolute;
+  display: inline-block;
+  margin-top: 165px;
+  background-image: url('file:/Users/williammayo/w3_project/piano-game/images/fire.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  height: 120px;
+  width: 120px;
+  z-index: 2;
+}
+#stage {
+  position: relative;
+  height: 200px;
+  width: 700px;
 }
 #c-sharp1 {
   left: -13px;

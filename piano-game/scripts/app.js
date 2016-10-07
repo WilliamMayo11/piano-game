@@ -73,8 +73,8 @@ function markCorrect() {
     count++;
     const ball = $('.ball');
     ball.stop();
-    ball.animate({marginTop: '10px'});
-    ball.animate({marginTop: '+=240px'}, 1500);
+    ball.animate({marginLeft: '500px'});
+    ball.animate({marginLeft: '-=560px'}, 3000);
 
     var currentMargin = parseInt(ball.css('marginTop'));
     console.log(currentMargin);
@@ -110,8 +110,8 @@ setInterval(youLose, 10);
 
 function youLose() {
   const ball = $('.ball');
-  var currentMargin = parseInt(ball.css('marginTop'));
-  if (currentMargin > 200) {
+  var currentMargin = parseInt(ball.css('marginLeft'));
+  if (currentMargin < -40) {
     alert('you really suck');
   }
 }
