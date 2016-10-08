@@ -14,7 +14,7 @@ const backgroundTest = $('body');
 backgroundTest.css('backgroundColor', 'green');
 
 
-// SCALES referencing id's of key divs.
+// SCALES referencing id's of each piano key div, in order.
 const cMajor = ['c1', 'd1', 'e1', 'f1', 'g1', 'a1', 'b1', 'c2'];
 const gMajor = ['g1', 'a1', 'b1', 'c2', 'd2', 'e2', 'f-sharp2', 'g2'];
 const dMajor = ['d1', 'e1', 'f-sharp1', 'g1', 'a1', 'b1', 'c-sharp2', 'd2'];
@@ -38,18 +38,37 @@ const currentScale = [cMajor, gMajor, dMajor, aMajor,
 // EVENT LISTENERS
 $('.key').click(markCorrect);
 $('button').click(reset);
-$('#c1').click(playCNote);
-//$('.play').click(currentChallenge);
+$('#c1').click(playC1);
+$('#c-sharp1').click(playCSharp1);
+$('#d1').click(playD1);
+$('#d-sharp1').click(playDSharp1);
+$('#e1').click(playE1);
+$('#f1').click(playF1);
+$('#f-sharp1').click(playFSharp1);
+$('#g1').click(playG1);
+$('#g-sharp1').click(playGSharp1);
+$('#a1').click(playA1);
+$('#a-sharp1').click(playASharp1);
+$('#b1').click(playB1);
+// $('#c2').click(playC2);
+$('#c-sharp2').click(playCSharp2);
+$('#d2').click(playD2);
+$('#d-sharp2').click(playDSharp2);
+$('#e2').click(playE2);
+$('#f2').click(playF2);
+$('#f-sharp2').click(playFSharp2);
+$('#g2').click(playG2);
+// $('#g-sharp2').click(playGSharp2);
+$('#a2').click(playA2);
+$('#a-sharp2').click(playASharp2);
+$('#b2').click(playB2);
+$('.play').click(currentChallenge, resetPosition);
 
-function playCNote() {
-  var cNote = $('#ac1').get(0);
-  cNote.play();
-}
 
 // VARIABLES
 const scaleNames = ['C Major', 'G Major', 'D Major', 'A Major',
                     'E Major', 'B Major', 'F# Major', 'C# Major',
-                     'Ab Major', 'Eb Major', 'Bb Major', 'F Major'];
+                     'Ab Major', 'Eb Major', 'Bb Major', 'F Major', 'YOU WIN!'];
 
 // FUNCTIONS
 
@@ -58,13 +77,15 @@ const scaleNames = ['C Major', 'G Major', 'D Major', 'A Major',
   let challenge = $('.challenge');
   challenge.text(scaleNames[count2]);
  }
- // currentChallenge();
 
-// const ball = $('.ball');
-// var currentMargin = parseInt(ball.css('marginTop'));
-// if (currentMargin > 200) {
-//   alert('you suck');
-// }
+ // reset Michael's position on play button click
+ function resetPosition() {
+  const ball = $('.ball');
+  ball.css('marginLeft', '0px');
+  currentChallenge();
+  setInterval(youLose, 10);
+ }
+
 let count = 0;
 function markCorrect() {
   if ($(this).attr('id') === currentScale[count2][count]) {
@@ -75,9 +96,8 @@ function markCorrect() {
     ball.stop();
     ball.animate({marginLeft: '500px'}, 'fast');
     ball.animate({marginLeft: '-=560px'}, 1500);
-
     var currentMargin = parseInt(ball.css('marginTop'));
-    console.log(currentMargin);
+
   }
   checkScale();
 }
@@ -104,7 +124,8 @@ function checkScale() {
   }
 }
 
-setInterval(youLose, 10);
+var loseCheck = setInterval(youLose, 10);
+
 
 function youLose() {
   const ball = $('.ball');
@@ -112,8 +133,116 @@ function youLose() {
   if (currentMargin < -40) {
     var ow = $('#ow').get(0);
     ow.play();
+    count = 0;
+    count2 = 0;
+    currentChallenge();
+    clearInterval(loseCheck);
+    let challenge = $('.challenge');
+    challenge.text('You lose. Press "Play" to try again.');
+
   }
 }
+
+// PLAY NOTE FUNCTIONS
+
+function playC1() {
+  let cNote1 = $('#ac1').get(0);
+  cNote1.play();
+}
+function playCSharp1() {
+  let cSharp1 = $('#ac-sharp1').get(0);
+  cSharp1.play();
+}
+function playD1() {
+  let dNote1 = $('#ad1').get(0);
+  dNote1.play();
+}
+function playDSharp1() {
+  let dSharp1 = $('#ad-sharp1').get(0);
+  dSharp1.play();
+}
+function playE1() {
+  let e1 = $('#ae1').get(0);
+  e1.play();
+}
+function playF1() {
+  let f1 = $('#af1').get(0);
+  f1.play();
+}
+function playFSharp1() {
+  var fSharp1 = $('#af-sharp1').get(0);
+  fSharp1.play();
+}
+function playG1() {
+  var g1 = $('#ag1').get(0);
+  g1.play();
+}
+function playGSharp1() {
+  let gSharp1 = $('#ag-sharp1').get(0);
+  gSharp1.play();
+}
+function playA1() {
+  let a1 = $('#aa1').get(0);
+  a1.play();
+}
+function playASharp1() {
+  let aSharp1 = $('#aa-sharp1').get(0);
+  aSharp1.play();
+}
+function playB1() {
+  let b1 = $('#ab1').get(0);
+  b1.play();
+}
+// function playC2() {
+//   let c2 = $('#ac2').get(0);
+//   c2.play();
+// }
+function playCSharp2() {
+  let cSharp2 = $('#ac-sharp2').get(0);
+  cSharp2.play();
+}
+function playD2() {
+  var d2 = $('#ad2').get(0);
+  d2.play();
+}
+function playDSharp2() {
+  let dSharp2 = $('#ad-sharp2').get(0);
+  dSharp2.play();
+}
+function playE2() {
+  let e2 = $('#ae2').get(0);
+  e2.play();
+}
+function playF2() {
+  let f2 = $('#af2').get(0);
+  f2.play();
+}
+function playFSharp2() {
+  var fSharp2 = $('#af-sharp2').get(0);
+  fSharp2.play();
+}
+function playG2() {
+  var g2 = $('#ag2').get(0);
+  g2.play();
+}
+// function playGSharp2() {
+//   let gSharp2 = $('#ag-sharp2').get(0);
+//   gSharp2.play();
+// }
+function playA2() {
+  let a2 = $('#aa2').get(0);
+  a2.play();
+}
+function playASharp2() {
+  let aSharp2 = $('#aa-sharp2').get(0);
+  aSharp2.play();
+}
+function playB2() {
+  let b2 = $('#ab2').get(0);
+  b2.play();
+}
+
+
 
 
 
