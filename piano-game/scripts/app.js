@@ -50,7 +50,7 @@ $('#g-sharp1').click(playGSharp1);
 $('#a1').click(playA1);
 $('#a-sharp1').click(playASharp1);
 $('#b1').click(playB1);
-// $('#c2').click(playC2);
+$('#c2').click(playC2);
 $('#c-sharp2').click(playCSharp2);
 $('#d2').click(playD2);
 $('#d-sharp2').click(playDSharp2);
@@ -58,7 +58,7 @@ $('#e2').click(playE2);
 $('#f2').click(playF2);
 $('#f-sharp2').click(playFSharp2);
 $('#g2').click(playG2);
-// $('#g-sharp2').click(playGSharp2);
+$('#g-sharp2').click(playGSharp2);
 $('#a2').click(playA2);
 $('#a-sharp2').click(playASharp2);
 $('#b2').click(playB2);
@@ -193,10 +193,10 @@ function playB1() {
   let b1 = $('#ab1').get(0);
   b1.play();
 }
-// function playC2() {
-//   let c2 = $('#ac2').get(0);
-//   c2.play();
-// }
+ function playC2() {
+   let cNote2 = $('#ac2').get(0);
+   cNote2.play();
+ }
 function playCSharp2() {
   let cSharp2 = $('#ac-sharp2').get(0);
   cSharp2.play();
@@ -225,10 +225,10 @@ function playG2() {
   var g2 = $('#ag2').get(0);
   g2.play();
 }
-// function playGSharp2() {
-//   let gSharp2 = $('#ag-sharp2').get(0);
-//   gSharp2.play();
-// }
+function playGSharp2() {
+  let gSharpNote2 = $('#ag-sharp2').get(0);
+  gSharpNote2.play();
+}
 function playA2() {
   let a2 = $('#aa2').get(0);
   a2.play();
