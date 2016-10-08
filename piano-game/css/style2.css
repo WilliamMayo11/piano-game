@@ -1,3 +1,10 @@
 body {
-  background-image: url('file:/Users/williammayo/w3_project/piano-game/images/pandora.jpg');
+  background: url('file:/Users/williammayo/w3_project/piano-game/images/pandora_background.jpg') no-repeat;
+  background-size: 340%;
+  min-height: 900px;
+  min-width: 1400px;
+  max-width: 1400px;
+  max-height: 900px;
+  background-position: -450px 0px;
 }
+

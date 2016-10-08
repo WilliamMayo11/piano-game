@@ -1,15 +1,40 @@
 header {
   background-color: black;
   color: white;
+  width: 300%;
   margin-top: -40px;
   margin-left: -8px;
   margin-right: -10px;
 }
+body {
+  background: url('file:/Users/williammayo/w3_project/piano-game/images/MJ_cover.jpg');
+  background-repeat: none;
+  background-position: 0px 100px;
+  font-family: 'Orbitron', sans-serif;
+}
 h1 {
-  padding: 20px;
+  padding: 40px 0 20px 20px;
 }
 h2 {
-  padding: 10px;
+  padding: 10px 10px 10px 20px;
+  margin-top: -40px;
+}
+li {
+  list-style: none;
+  padding: 10px 25px 10px 10px;
+}
+a {
+  text-decoration: none;
+}
+.flex-ul {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 37px;
+  width: 300%;
+  margin-left: -8px;
+  margin-top: -20px;
+  background-color: gray;
 }
 .all-keys {
   display: flex;
@@ -45,19 +70,17 @@ h2 {
 }
 .level {
   margin-bottom: 20px;
-  max-width: 400px;
+  min-width: 800px;
+  max-width: 800px;
+  min-height: 30px;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-direction: row;
+  align-content: stretch;
+  margin-left: 40px;
+  font-size: 20px;
 }
-.reset {
-  margin-top: 15px;
-  margin-left: 20px;
-}
-.status {
-  margin-left: 20px;
-  margin-right: 30px;
-  min-width: 130px;
+.next {
+  display: inline;
 }
 .ball-screen {
   height: 250px;

@@ -76,6 +76,8 @@ const scaleNames = ['C Major', 'G Major', 'D Major', 'A Major',
   function currentChallenge() {
   let challenge = $('.challenge');
   challenge.text(scaleNames[count2]);
+  let nextChallenge = $('.next-scale');
+  nextChallenge.text(scaleNames[count2 + 1]);
  }
 
  // reset Michael's position on play button click
@@ -95,7 +97,7 @@ function markCorrect() {
     const ball = $('.ball');
     ball.stop();
     ball.animate({marginLeft: '500px'}, 'fast');
-    ball.animate({marginLeft: '-=560px'}, 1500);
+    ball.animate({marginLeft: '-=560px'}, 3000);
     var currentMargin = parseInt(ball.css('marginTop'));
 
   }
