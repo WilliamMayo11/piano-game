@@ -253,11 +253,11 @@ for (let i = 0; i <urlStringUser.length; i++) {
   tempArr = urlStringUser[i].split("=");
   let key = tempArr[0];
   let value = tempArr[1];
-
-  let uniqueUser = value;
-  let greeting = $('h3');
-  greeting.append(value);
-  console.log(pairObjects);
+    if (i === 1) {
+      let uniqueUser = value;
+      let greeting = $('h3');
+      greeting.append(value);
+    }
 }
 
 
