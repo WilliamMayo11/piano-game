@@ -112,6 +112,7 @@ function reset() {
   $('.b-key').css('backgroundColor', 'black');
   count = 0;
 }
+
 let count2 = 0;
 function checkScale() {
     if (count === 8) {
@@ -244,6 +245,24 @@ function playB2() {
   b2.play();
 }
 
+// GETTING USER INFO
+let userPairsObj = {};
+let query = window.location.search.substring(1);
+let urlStringUser = query.split("&");
+let userPairsArr = [];
+let form = $('form');
+
+for (let i = 0; i <urlStringUser.length; i++) {
+  let tempArr = [];
+  tempArr = urlStringUser[i].split("=");
+  let key = tempArr[0];
+  let value = tempArr[1];
+
+  let uniqueUser = value;
+  let greeting = $('h3');
+  greeting.append(value);
+  console.log(pairObjects);
+}
 
 
 
