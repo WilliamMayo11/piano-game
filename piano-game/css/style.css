@@ -23,12 +23,24 @@ h3 {
   color: white;
   padding: 20px;
 }
+h4 {
+  color: black;
+  font-size: 40px;
+}
+h5 {
+  color: black;
+  font-size: 20px;
+}
 li {
   list-style: none;
   padding: 10px 25px 10px 10px;
 }
 a {
   text-decoration: none;
+}
+p {
+  font-family: helvetica;
+  font-size: 20px;
 }
 .header-flex {
   display: flex;
@@ -111,6 +123,7 @@ a {
   border: none;
   width: 80px;
   font-size: 20px;
+  font-family: 'Orbitron', sans-serif;
   background-color: rgba(0, 0, 0, .1);
 }
 .ball-screen {
@@ -137,6 +150,14 @@ a {
   height: 120px;
   width: 120px;
   z-index: 2;
+}
+.reference {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+#directions {
+  margin-top: 400px;
 }
 #stage {
   position: relative;
