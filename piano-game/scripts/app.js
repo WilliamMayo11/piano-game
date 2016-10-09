@@ -10,31 +10,6 @@ $(document).ready(function(){
  const bKeys = $('.b-key');
  bKeys.addClass('key');
 
-const backgroundTest = $('body');
-backgroundTest.css('backgroundColor', 'green');
-
-
-// SCALES referencing id's of each piano key div, in order.
-const cMajor = ['c1', 'd1', 'e1', 'f1', 'g1', 'a1', 'b1', 'c2'];
-const gMajor = ['g1', 'a1', 'b1', 'c2', 'd2', 'e2', 'f-sharp2', 'g2'];
-const dMajor = ['d1', 'e1', 'f-sharp1', 'g1', 'a1', 'b1', 'c-sharp2', 'd2'];
-const aMajor = ['a1', 'b1', 'c-sharp2', 'd2', 'e2', 'f-sharp2', 'g-sharp2', 'a2'];
-const eMajor = ['e1', 'f-sharp1', 'g-sharp1', 'a1', 'b1', 'c-sharp2', 'd-sharp2', 'e2'];
-const bMajor = ['b1', 'c-sharp2', 'd-sharp2', 'e2', 'f-sharp2', 'g-sharp2', 'a-sharp2', 'b2'];
-const gFlatMajor = ['f-sharp1', 'g-sharp1', 'a-sharp1', 'b1', 'c-sharp2', 'd-sharp2', 'f2', 'f-sharp2'];
-const dFlatMajor = ['c-sharp1', 'd-sharp1', 'f1', 'f-sharp1', 'g-sharp1', 'a-sharp1', 'c2', 'c-sharp2'];
-const aFlatMajor = ['g-sharp1', 'a-sharp1', 'c2', 'c-sharp2', 'd-sharp2', 'f2', 'g2', 'g-sharp2'];
-const eFlatMajor = ['d-sharp1', 'f1', 'g1', 'g-sharp1', 'a-sharp1', 'c2', 'd2', 'd-sharp2'];
-const bFlatMajor = ['a-sharp1', 'c2', 'd2', 'd-sharp2', 'f2', 'g2', 'a2', 'a-sharp2'];
-const fMajor = ['f1', 'g1', 'a1', 'a-sharp1', 'c2', 'd2', 'e2', 'f2'];
-
-
-
-let playedScale = [];
-const currentScale = [cMajor, gMajor, dMajor, aMajor,
-                    eMajor, bMajor, gFlatMajor, dFlatMajor,
-                    aFlatMajor, eFlatMajor, bFlatMajor, fMajor];
-
 // EVENT LISTENERS
 $('.key').click(markCorrect);
 $('button').click(reset);
@@ -65,24 +40,49 @@ $('#b2').click(playB2);
 $('.play').click(currentChallenge, resetPosition);
 
 
-// VARIABLES
+// GLOBAL VARIABLES
+let nextChallenge = $('.next-scale');
+const ball = $('.ball');
+let challenge = $('.challenge');
+
 const scaleNames = ['C Major', 'G Major', 'D Major', 'A Major',
                     'E Major', 'B Major', 'F# Major', 'C# Major',
                      'Ab Major', 'Eb Major', 'Bb Major', 'F Major', 'YOU WIN!'];
 
+
+
+// ARRAYS representing correct order of notes
+const cMajor = ['c1', 'd1', 'e1', 'f1', 'g1', 'a1', 'b1', 'c2'];
+const gMajor = ['g1', 'a1', 'b1', 'c2', 'd2', 'e2', 'f-sharp2', 'g2'];
+const dMajor = ['d1', 'e1', 'f-sharp1', 'g1', 'a1', 'b1', 'c-sharp2', 'd2'];
+const aMajor = ['a1', 'b1', 'c-sharp2', 'd2', 'e2', 'f-sharp2', 'g-sharp2', 'a2'];
+const eMajor = ['e1', 'f-sharp1', 'g-sharp1', 'a1', 'b1', 'c-sharp2', 'd-sharp2', 'e2'];
+const bMajor = ['b1', 'c-sharp2', 'd-sharp2', 'e2', 'f-sharp2', 'g-sharp2', 'a-sharp2', 'b2'];
+const gFlatMajor = ['f-sharp1', 'g-sharp1', 'a-sharp1', 'b1', 'c-sharp2', 'd-sharp2', 'f2', 'f-sharp2'];
+const dFlatMajor = ['c-sharp1', 'd-sharp1', 'f1', 'f-sharp1', 'g-sharp1', 'a-sharp1', 'c2', 'c-sharp2'];
+const aFlatMajor = ['g-sharp1', 'a-sharp1', 'c2', 'c-sharp2', 'd-sharp2', 'f2', 'g2', 'g-sharp2'];
+const eFlatMajor = ['d-sharp1', 'f1', 'g1', 'g-sharp1', 'a-sharp1', 'c2', 'd2', 'd-sharp2'];
+const bFlatMajor = ['a-sharp1', 'c2', 'd2', 'd-sharp2', 'f2', 'g2', 'a2', 'a-sharp2'];
+const fMajor = ['f1', 'g1', 'a1', 'a-sharp1', 'c2', 'd2', 'e2', 'f2'];
+
+let playedScale = [];
+const currentScale = [cMajor, gMajor, dMajor, aMajor,
+                    eMajor, bMajor, gFlatMajor, dFlatMajor,
+                    aFlatMajor, eFlatMajor, bFlatMajor, fMajor];
+
+
+
 // FUNCTIONS
 
 // generate new challenge
-  function currentChallenge() {
-  let challenge = $('.challenge');
+function currentChallenge() {
+  challenge.css('fontSize', '40px');
   challenge.text(scaleNames[count2]);
-  let nextChallenge = $('.next-scale');
   nextChallenge.text(scaleNames[count2 + 1]);
  }
 
  // reset Michael's position on play button click
  function resetPosition() {
-  const ball = $('.ball');
   ball.css('marginLeft', '0px');
   currentChallenge();
   setInterval(youLose, 10);
@@ -94,16 +94,13 @@ function markCorrect() {
     playedScale.push($(this).attr('id'));
     $(this).css('backgroundColor', 'blue');
     count++;
-    const ball = $('.ball');
     ball.stop();
     ball.animate({marginLeft: '500px'}, 'fast');
-    ball.animate({marginLeft: '-=560px'}, 3000);
+    ball.animate({marginLeft: '-=550px'}, 3000);
     var currentMargin = parseInt(ball.css('marginTop'));
-
   }
   checkScale();
 }
-
 
 
 function reset() {
@@ -115,15 +112,13 @@ function reset() {
 
 let count2 = 0;
 function checkScale() {
-    if (count === 8) {
+  if (count === 8) {
     reset();
-        const ball = $('.ball');
     count2++;
     currentChallenge();
       if (count2 === 12) {
-        // const ball = $('.ball');
-        // ball.stop();
-    }
+        ball.animate({marginLeft: '500px'}, 'fast');
+      }
   }
 }
 
@@ -140,8 +135,9 @@ function youLose() {
     count2 = 0;
     currentChallenge();
     clearInterval(loseCheck);
-    let challenge = $('.challenge');
+    challenge.css('fontSize', '20px');
     challenge.text('You lose. Press "Play" to try again.');
+    nextChallenge.text("");
 
   }
 }
