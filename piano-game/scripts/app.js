@@ -78,7 +78,11 @@ const currentScale = [cMajor, gMajor, dMajor, aMajor,
 function currentChallenge() {
   challenge.css('fontSize', '40px');
   challenge.text(scaleNames[count2]);
-  nextChallenge.text(scaleNames[count2 + 1]);
+     if (count2 < 11) {
+       nextChallenge.text(scaleNames[count2 + 1]);
+     } else {
+      nextChallenge.text('');
+     }
  }
 
  // reset Michael's position on play button click
@@ -242,11 +246,10 @@ function playB2() {
 }
 
 // GETTING USER INFO
-let userPairsObj = {};
 let query = window.location.search.substring(1);
 let urlStringUser = query.split("&");
-let userPairsArr = [];
-let form = $('form');
+// let userPairsArr = [];
+// let form = $('form');
 
 for (let i = 0; i <urlStringUser.length; i++) {
   let tempArr = [];
@@ -254,7 +257,6 @@ for (let i = 0; i <urlStringUser.length; i++) {
   let key = tempArr[0];
   let value = tempArr[1];
     if (i === 1) {
-      let uniqueUser = value;
       let greeting = $('h3');
       greeting.append(value);
     }
