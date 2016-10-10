@@ -5,12 +5,15 @@ console.log('js is linked');
 $(document).ready(function(){
 
 //  add class 'key' to black keys and white keys.
+// to add hover in css
  const wKeys = $('.w-key');
  wKeys.addClass('key');
  const bKeys = $('.b-key');
  bKeys.addClass('key');
 
 // EVENT LISTENERS
+// each piano key div runs a function
+// that plays the correct note
 $('.key').click(markCorrect);
 $('button').click(reset);
 $('#c1').click(playC1);
@@ -42,6 +45,7 @@ $('.play').click(currentChallenge, resetPosition);
 
 // GLOBAL VARIABLES
 let nextChallenge = $('.next-scale');
+// ball refers to Michael Jackson gif
 const ball = $('.ball');
 let challenge = $('.challenge');
 let fire = $('.fire');
@@ -66,7 +70,9 @@ const eFlatMajor = ['d-sharp1', 'f1', 'g1', 'g-sharp1', 'a-sharp1', 'c2', 'd2', 
 const bFlatMajor = ['a-sharp1', 'c2', 'd2', 'd-sharp2', 'f2', 'g2', 'a2', 'a-sharp2'];
 const fMajor = ['f1', 'g1', 'a1', 'a-sharp1', 'c2', 'd2', 'e2', 'f2'];
 
+// set empty array for markCorrect() to push to
 let playedScale = [];
+// list each scale/challenge in array
 const currentScale = [cMajor, gMajor, dMajor, aMajor,
                     eMajor, bMajor, gFlatMajor, dFlatMajor,
                     aFlatMajor, eFlatMajor, bFlatMajor, fMajor];
@@ -76,6 +82,7 @@ const currentScale = [cMajor, gMajor, dMajor, aMajor,
 // FUNCTIONS
 
 // generate new challenge
+// update display screen with the current and challenge/scale
 function currentChallenge() {
   challenge.css('fontSize', '40px');
   challenge.text(scaleNames[count2]);
@@ -87,12 +94,16 @@ function currentChallenge() {
  }
 
  // reset Michael's position on play button click
+ // engage the lose-testing function interval
 function resetPosition() {
   ball.css('marginLeft', '0px');
   currentChallenge();
   setInterval(youLose, 10);
 }
 
+// when correct key is played, turn the key blue and
+// push it's ID to the playedScale[] array.
+// push MJ away from fire every correct click
 let count = 0;
 function markCorrect() {
   if ($(this).attr('id') === currentScale[count2][count]) {
@@ -102,12 +113,11 @@ function markCorrect() {
     ball.stop();
     ball.animate({marginLeft: '500px'}, 'fast');
     ball.animate({marginLeft: '-=550px'}, 3000);
-    var currentMargin = parseInt(ball.css('marginTop'));
   }
   checkScale();
 }
 
-
+// function to reset the key colors and note counter
 function reset() {
   playedScale = [];
   $('.w-key').css('backgroundColor', 'white');
@@ -115,24 +125,23 @@ function reset() {
   count = 0;
 }
 
+// function to check if scale has been fully played
+// if so, go on to the next scale and clear the keys' color
 let count2 = 0;
 function checkScale() {
   if (count === 8) {
     reset();
     count2++;
     currentChallenge();
-      // if (count2 === 11) {
-      //   clearInterval(youLose);
-      //   ball.clearQueue(animate);
-      //   ball.stop();
-      //   ball.animate({marginLeft: '500px'}, 'fast');
-     // }
   }
 }
 
+// check if MJ is in the fire every 10ms
 var loseCheck = setInterval(youLose, 10);
 
-
+// function to lose and win the game
+// if MJ gets into the fire, you lose
+// if all 12 scales are played correctly, you win.
 function youLose() {
   const ball = $('.ball');
   var currentMargin = parseInt(ball.css('marginLeft'));
@@ -150,11 +159,12 @@ function youLose() {
   }
   } else if (count2 === 12) {
     fire.remove();
+    const dontStop = $('#dont-stop').get(0);
+    dontStop.play()
   }
 }
 
 // PLAY NOTE FUNCTIONS
-
 function playC1() {
   let cNote1 = $('#ac1').get(0);
   cNote1.play();
@@ -253,6 +263,7 @@ function playB2() {
 }
 
 // GETTING USER INFO
+// pull user data from URL
 let query = window.location.search.substring(1);
 let urlStringUser = query.split("&");
 
