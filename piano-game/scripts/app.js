@@ -44,6 +44,7 @@ $('.play').click(currentChallenge, resetPosition);
 let nextChallenge = $('.next-scale');
 const ball = $('.ball');
 let challenge = $('.challenge');
+let fire = $('.fire');
 
 const scaleNames = ['C Major', 'G Major', 'D Major', 'A Major',
                     'E Major', 'B Major', 'F# Major', 'C# Major',
@@ -86,11 +87,11 @@ function currentChallenge() {
  }
 
  // reset Michael's position on play button click
- function resetPosition() {
+function resetPosition() {
   ball.css('marginLeft', '0px');
   currentChallenge();
   setInterval(youLose, 10);
- }
+}
 
 let count = 0;
 function markCorrect() {
@@ -120,9 +121,12 @@ function checkScale() {
     reset();
     count2++;
     currentChallenge();
-      if (count2 === 12) {
-        ball.animate({marginLeft: '500px'}, 'fast');
-      }
+      // if (count2 === 11) {
+      //   clearInterval(youLose);
+      //   ball.clearQueue(animate);
+      //   ball.stop();
+      //   ball.animate({marginLeft: '500px'}, 'fast');
+     // }
   }
 }
 
@@ -132,6 +136,7 @@ var loseCheck = setInterval(youLose, 10);
 function youLose() {
   const ball = $('.ball');
   var currentMargin = parseInt(ball.css('marginLeft'));
+  if (count2 < 11) {
   if (currentMargin < -40) {
     var ow = $('#ow').get(0);
     ow.play();
@@ -142,7 +147,9 @@ function youLose() {
     challenge.css('fontSize', '20px');
     challenge.text('You lose. Press "Play" to try again.');
     nextChallenge.text("");
-
+  }
+  } else if (count2 === 12) {
+    fire.remove();
   }
 }
 
@@ -248,8 +255,7 @@ function playB2() {
 // GETTING USER INFO
 let query = window.location.search.substring(1);
 let urlStringUser = query.split("&");
-// let userPairsArr = [];
-// let form = $('form');
+
 
 for (let i = 0; i <urlStringUser.length; i++) {
   let tempArr = [];
